@@ -1,0 +1,78 @@
+     Assembly listing for: array.mas
+                Assembled: Mon Dec 03 15:33:31 GST 2018
+
+         |         ORG 0             
+000 1018 |  Cond   LOAD COUNT       / LOAD count into AC
+001 4012 |         SUBT ARRAY       / SUBTRACT array[0] from AC
+002 8000 |         SKIPCOND 000     / Skipcond 000 if AC < 0
+003 900D |         JUMP End         / JUMP to End
+         |                          
+004 1018 |  Loop   LOAD COUNT       / LOAD Count into AC
+005 301A |         ADD ONE          / ADD ONE to AC
+006 2018 |         STORE COUNT      / STORE AC into COUNT
+         |                          
+007 ?010 |         LOADI INDEX      / LOAD MEM[index] into AC
+   **** Instruction not recognized.
+008 6000 |         OUTPUT           / OUTPUT value at index
+         |                          
+009 1010 |         LOAD INDEX        
+00A 301A |         ADD ONE           
+00B 2010 |         STORE INDEX       
+         |                          
+00C 9000 |         JUMP Cond        / JUMP to Cond
+         |                          
+00D 1011 |  End    LOAD START       / LOAD start into AC
+00E 2010 |         STORE INDEX      / STORE AC into index
+00F 7000 |         HALT             / HALT process
+         |                          
+010 0013 |  INDEX  HEX 013          / Our current memory location
+011 0013 |  START  HEX 013          / The memory location of our first value (in hex)
+012 0005 |  ARRAY  DEC 5            / The first index of our array (used for size)
+013 0000 |         DEC 0            / index 0
+014 0002 |         DEC 2            / index 1
+015 0004 |         DEC 4            / index 2
+016 0008 |         DEC 8            / index 3
+017 0010 |         DEC 16           / index 4
+         |                          
+018 0000 |  COUNT  DEC 0             
+         |                          
+         |                          / constant values
+019 0000 |  ZERO   DEC 0             
+01A 0001 |  ONE    DEC 1             
+01B 0002 |  TWO    DEC 2             
+01C 0003 |  THREE  DEC 3             
+01D 0004 |  FOUR   DEC 4             
+01E 0005 |  FIVE   DEC 5             
+01F 0006 |  SIX    DEC 6             
+020 0007 |  SEVEN  DEC 7             
+021 0008 |  EIGHT  DEC 8             
+022 0009 |  NINE   DEC 9             
+023 000A |  TEN    DEC 10            
+
+1 error found.  Assembly unsuccessful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          ARRAY  |   012   | 001
+          COUNT  |   018   | 000, 004, 006
+          Cond   |   000   | 00C
+          EIGHT  |   021   | 
+          End    |   00D   | 003
+          FIVE   |   01E   | 
+          FOUR   |   01D   | 
+          INDEX  |   010   | 007, 009, 00B, 00E
+          Loop   |   004   | 
+          NINE   |   022   | 
+          ONE    |   01A   | 005, 00A
+          SEVEN  |   020   | 
+          SIX    |   01F   | 
+          START  |   011   | 00D
+          TEN    |   023   | 
+          THREE  |   01C   | 
+          TWO    |   01B   | 
+          ZERO   |   019   | 
+         --------------------------------------------------
+
+

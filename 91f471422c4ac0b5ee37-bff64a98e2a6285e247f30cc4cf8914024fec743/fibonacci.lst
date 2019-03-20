@@ -1,0 +1,88 @@
+     Assembly listing for: fibonacci.mas
+                Assembled: Sun Oct 14 14:18:07 GST 2018
+
+         |         ORG 0             
+000 1016 |  Cond   LOAD COUNT       / Load count into AC
+001 4025 |         SUBT ELEVEN      / Remove 10 from count
+002 8000 |         SKIPCOND 000     / Skipcond 000 if AC < 0
+003 9015 |         JUMP End         / End Loop
+         |                                  
+004 1016 |  Loop   LOAD COUNT       / Load count into AC
+005 301B |         ADD ONE          / Increment Count by 1
+006 2016 |         STORE COUNT      / Store AC in count
+007 0009 |         JNS Fibb          
+008 9000 |         JUMP Cond        / Check loop conditions
+         |                                  
+009 0000 |  Fibb   HEX 000          / Store value for JNS
+00A A000 |         CLEAR            / AC = 0
+         |                                  
+         |                                  / Fi = F1 + F2
+00B 3018 |         ADD F1           / AC + F1
+00C 3019 |         ADD F2           / AC + F2
+00D 2017 |         STORE Fi         / Fi = AC
+         |                                  
+         |                                  / F1 = F2
+00E 1019 |         LOAD F2          / AC = F2
+00F 2018 |         STORE F1         / F1 = AC
+         |                                  
+         |                                  / F2 = Fi
+010 1017 |         LOAD Fi          / AC = Fi
+011 2019 |         STORE F2         / F2 = AC 
+         |                                  
+         |                                  / Quick Output
+012 1017 |         LOAD Fi          / AC = FI
+013 6000 |         OUTPUT           / Output AC
+         |                                  
+014 C009 |         JUMPI Fibb        
+         |                          
+015 7000 |  End    HALT             / Halt process
+         |                          
+         |                          / variables
+016 0000 |  COUNT  DEC 0            / count for loop
+017 0000 |  Fi     DEC 0             
+018 0000 |  F1     DEC 0             
+019 0001 |  F2     DEC 1             
+         |                          
+         |                          / constant values
+01A 0000 |  ZERO   DEC 0             
+01B 0001 |  ONE    DEC 1             
+01C 0002 |  TWO    DEC 2             
+01D 0003 |  THREE  DEC 3             
+01E 0004 |  FOUR   DEC 4             
+01F 0005 |  FIVE   DEC 5             
+020 0006 |  SIX    DEC 6             
+021 0007 |  SEVEN  DEC 7             
+022 0008 |  EIGHT  DEC 8             
+023 0009 |  NINE   DEC 9             
+024 000A |  TEN    DEC 10            
+025 000B |  ELEVEN DEC 11            
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          COUNT  |   016   | 000, 004, 006
+          Cond   |   000   | 008
+          EIGHT  |   022   | 
+          ELEVEN |   025   | 001
+          End    |   015   | 003
+          F1     |   018   | 00B, 00F
+          F2     |   019   | 00C, 00E, 011
+          FIVE   |   01F   | 
+          FOUR   |   01E   | 
+          Fi     |   017   | 00D, 010, 012
+          Fibb   |   009   | 007, 014
+          Loop   |   004   | 
+          NINE   |   023   | 
+          ONE    |   01B   | 005
+          SEVEN  |   021   | 
+          SIX    |   020   | 
+          TEN    |   024   | 
+          THREE  |   01D   | 
+          TWO    |   01C   | 
+          ZERO   |   01A   | 
+         --------------------------------------------------
+
+

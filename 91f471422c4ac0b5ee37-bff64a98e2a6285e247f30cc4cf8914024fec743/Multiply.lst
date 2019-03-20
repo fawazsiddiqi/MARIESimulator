@@ -1,0 +1,37 @@
+     Assembly listing for: Multiply.mas
+                Assembled: Sun Oct 21 13:01:30 GST 2018
+
+000 5000 |           INPUT               
+001 200F |           STORE x             
+002 5000 |           INPUT               
+003 2010 |           STORE y             
+004 100F |  loop     LOAD x              
+005 3012 |           ADD multiply        
+006 2012 |           STORE multiply      
+007 1010 |           LOAD y              
+008 4011 |           SUBT one            
+009 2010 |           STORE y             
+00A 8400 |           SKIPCOND 400        
+00B 9004 |           JUMP loop           
+00C 1012 |           LOAD multiply       
+00D 6000 |           OUTPUT              
+00E 7000 |           HALT                
+00F 0000 |  x        DEC 0               
+010 0000 |  y        DEC 0               
+011 0001 |  one      DEC 1               
+012 0000 |  multiply DEC 0               
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------
+          Symbol   | Defined | References 
+         ----------+---------+-------------------------------
+          loop     |   004   | 00B
+          multiply |   012   | 005, 006, 00C
+          one      |   011   | 008
+          x        |   00F   | 001, 004
+          y        |   010   | 003, 007, 009
+         ----------------------------------------------------
+
+

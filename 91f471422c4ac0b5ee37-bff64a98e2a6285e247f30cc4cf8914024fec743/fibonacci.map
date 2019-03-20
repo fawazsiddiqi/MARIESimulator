@@ -1,0 +1,24 @@
+ -----------------
+ Symbol | Location
+ -------+---------
+ COUNT  |   016
+ Cond   |   000
+ EIGHT  |   022
+ ELEVEN |   025
+ End    |   015
+ F1     |   018
+ F2     |   019
+ FIVE   |   01F
+ FOUR   |   01E
+ Fi     |   017
+ Fibb   |   009
+ Loop   |   004
+ NINE   |   023
+ ONE    |   01B
+ SEVEN  |   021
+ SIX    |   020
+ TEN    |   024
+ THREE  |   01D
+ TWO    |   01C
+ ZERO   |   01A
+
